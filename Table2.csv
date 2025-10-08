@@ -1,0 +1,74 @@
+Reference,Pathology (Dataset),Modality,Method,Dim.,Dice,AUROC,AUPRC,Keyword
+Baur2018,MS (In-house),"MRI (T1, FLAIR)",AE,2D,0.605,--,--,
+Baur2021-2,Tumour (In-house),MRI (FLAIR),AE,3D,0.39,--,0.3,
+Behrendt2022,Tumour (BraTS),MRI (T1),AE,3D,--,0.935,--,Dataset Impurities
+Muñoz-Ramírez2022,Parkinson (PPMI),MRI (DTI),AE,2D,--,0.682,--,DTI
+Ghorbel2023,Tumour (BraTS),MRI (FLAIR),AE,2D,0.502,0.78,0.425,Transformer
+,MS (MSLUB),MRI (FLAIR),AE,2D,0.173,0.886,0.203,
+Kascenas2023~*,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",AE,2D,0.773,--,0.833,Denoising AE
+,MS (In-house),MRI (FLAIR),AE,3D,0.65,--,0.67,
+,WMH (WMH),"MRI (T1, FLAIR)",AE,3D,0.45,--,0.37,
+Luo2023~*,Tumour (BraTS),MRI (T2),AE,3D,0.462,0.844,0.741,3D AE
+,Stroke (In-house),MRI (T2),AE,3D,--,0.807,0.705,
+,MS (In-house),MRI (T2),AE,3D,--,0.858,0.731,
+Meissen2023~*,Tumour (BraTS),MRI (T1),AE,2D,0.4,0.77,--,2-stage
+,"Aging (Cam-CAN, MOOD)",MRI (T1),AE,2D,0.336,0.775,--,
+Avci2024~*,Alzheimer (ADNI),MRI (T1),AE,3D,--,0.8,--,deformable AE
+Jiménez-García2024,Tumour (BraTS),"T1, T1c, T2, FLAIR",AE,3D,0.471,0.838,--,Elastic transform
+Lu2024,Tumour (In-house),MRI (T1),AE,2D,--,0.992,--,3D AE
+Sato2019,Tumour (BraTS),"MRI (T1, T2)",VAE,3D,--,0.582,--,Tailored loss
+,Stroke (ATLAS),MRI (T1),VAE,3D,--,0.672,--,
+Uzunova2019,Tumour(BraTS),"MRI (T1c, T2, FLAIR)",VAE,3D,0.5,0.94,--,Conditional
+Zimmerer2019~*,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",VAE,2D,0.44,0.82,--,Tailored Loss
+Bengs2021,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",VAE,3D,0.302,--,0.279,3D VAE
+,Stroke (ATLAS),MRI (T1),VAE,3D,0.331,--,0.256,
+Lambert2021,Tumour (BraTS),MRI (FLAIR),VAE,3D,0.65,--,--,3D VAE
+,"WMH (MSSEG, WMH)",MRI (FLAIR),VAE,3D,0.463,--,--,
+Chatterjee2022~*,Tumour (BraTS),"MRI (T1, T2)",VAE,2D,0.531,--,--,Context Encoding
+,Synthetic lesions,MRI,VAE,2D,0.723,--,--,
+Pinaya2022-2,MS (MSLUB),MRI (FLAIR),VAE,2D,0.378,--,0.272,Transformer
+,Tumour (BraTS),MRI (FLAIR),VAE,2D,0.537,--,0.555,
+,WMH (WMH),MRI (FLAIR),VAE,2D,0.429,--,0.32,
+Lüth2023,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",VAE,2D,--,0.826,0.819,Contrastive
+,Stroke (ISLES),MRI (FLAIR),VAE,2D,--,0.693,0.549,
+Raad2023~*,Neonatal anomalies (dHCP),MRI (T2),VAE,3D,--,0.83,--,Rare disease
+Solal2023,Alzheimer (ADNI),PET,VAE,3D,--,--,--,PET-scan
+Hassanaly2024~*,Alzheimer (In-house),PET,VAE,3D,--,--,--,PET-scan
+Huijben2024~*,Synthetic lesions,MRI (T1),VAE,2D,--,--,0.66,Synthetic lesions
+Wijanarko2024,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",VAE,2D,0.606,0.968,0.462,Tailored loss
+Schlegl2019~*,Macular edema (In-house),OCT,GAN,2D,--,0.783,--,Wassertstein
+Simarro2020,TBI (Center-TBI),CT,GAN,3D,--,0.75,--,Wassertstein
+Dey2021,Tumour (BraTS),"MRI (T2, FLAIR)",GAN,2D,0.68,--,--,
+,MS (MSSEG),MRI (FLAIR),GAN,2D,0.482,--,--,
+Nguyen2021,Tumour (BraTS),MRI (T1),GAN,2D,0.77,--,--,2-stage
+Wu2021,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",GAN,3D,0.619,--,--,Symmetric
+Cabreza2022,Alzheimer (OASIS-3),MRI (T1),GAN,2D,--,0.795,--,
+Rahman2024~*,Alzheimer (ADNI),MRI (T1),GAN,2D,--,0.655,--,Patch GAN
+Bougaham2025~*,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",GAN,2D,--,0.932,--,Cycle GAN
+Pinaya2022-1,WMH (WMH),MRI (FLAIR),Diffusion,2D,0.298,--,--,Transformer
+,MS (MSLUB),MRI (FLAIR),Diffusion,2D,0.247,--,--,
+,Tumour(BraTS),MRI (FLAIR),Diffusion,2D,0.398,--,--,
+Wyatt2022~*,Tumour (Pernet et al.),MRI (T1),Diffusion,2D,0.383,0.863,--,Simplex
+Behrendt2023~*,Tumour (BraTS),MRI (T2),Diffusion,2D,0.49,--,0.541,Patch DDPM
+,MS (MSLUB),MRI (T2),Diffusion,2D,0.105,--,0.106,
+Bercea2023~*,Stroke (ATLAS),MRI (T1),Diffusion,2D,0.228,--,0.145,Conditioning
+Iqbal2023~*,Tumour (BraTS),MRI (T2),Diffusion,2D,0.53,--,0.59,Masked DDPM
+,MS (MSLUB),MRI (T2),Diffusion,2D,0.107,--,0.106,
+Behrendt2024~*,Tumour (BraTS),MRI (T2),Diffusion,3D,0.574,--,--,SSIM
+,Stroke (ATLAS),MRI (T1),Diffusion,3D,0.148,--,--,
+,MS (MSLUB),MRI (T2),Diffusion,3D,0.061,--,--,
+,WMH (WMH),MRI (T1),Diffusion,3D,0.132,--,--,
+Bercea2024~*,Stroke (ATLAS),MRI (T1),Diffusion,2D,0.297,--,--,Conditioning
+Fontanella2024,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",Diffusion,2D,0.699,--,--,DDIM
+,WMH (WMH),MRI (FLAIR),Diffusion,2D,0.569,--,--,
+Kumar2024~*,Tumour (BraTS),MRI (T2),Diffusion,2D,0.506,--,0.578,Patch DDPM
+,MS (MSLUB),MRI (T2),Diffusion,2D,0.055,--,0.067,
+Bi2025~*,Tumour (BraTS),MRI (FLAIR),Diffusion,2D,0.738,0.922,--,Multi-stage inference
+Kascenas2022,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",SelfSupervised & Others,2D,0.742,--,0.811,CNN extractor
+Baugh2023~*,Tumour (BraTS),MRI (T2),SelfSupervised & Others,2D,--,0.922,--,Self-supervised
+,Stroke (ISLES),MRI (FLAIR),SelfSupervised & Others,2D,--,0.846,--,
+Bercea2025~*,Stroke (ATLAS),MRI (T1),SelfSupervised & Others,N/A,--,--,--,Metrics
+Xiao2025,Tumour (Pernet et al.),MRI (T1),SelfSupervised & Others,2D,--,0.91,--,Transformer
+Xiaochuan2025,Tumour (BraTS),MRI (FLAIR),SelfSupervised & Others,3D,0.856,--,--,Foundation models
+Zhang2025~*,Tumour (BraTS),"MRI (T1,~T1c,~T2,~FLAIR)",SelfSupervised & Others,3D,0.78,--,--,2-stage
+,Stroke (ISLES),MRI (FLAIR),SelfSupervised & Others,3D,0.553,--,--,
