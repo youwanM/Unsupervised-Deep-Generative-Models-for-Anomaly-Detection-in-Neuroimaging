@@ -45,7 +45,19 @@ This repository supports the review paper **"Unsupervised Deep Generative Models
 
 ## Citation
 
-TODO
+If you use this work, please cite:
+
+```bibtex
+@misc{mahé2025unsuperviseddeepgenerativemodels,
+      title={Unsupervised Deep Generative Models for Anomaly Detection in Neuroimaging: A Systematic Scoping Review}, 
+      author={Youwan Mahé and Elise Bannier and Stéphanie Leplaideur and Elisa Fromont and Francesca Galassi},
+      year={2025},
+      eprint={2510.14462},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2510.14462}, 
+}
+```
 
 ---
 
