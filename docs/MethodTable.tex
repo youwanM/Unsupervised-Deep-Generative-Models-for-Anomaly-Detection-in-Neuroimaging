@@ -2,7 +2,7 @@
 \caption{Comparison of unsupervised anomaly detection methods and their experimental setups.
 MS: Multiple Sclerosis; TBI: Traumatic Brain Injury; WMH: White Matter Hyperintensities.
 * denotes the presence of a working link to a GitHub repository.  
-$^\mathcal{H}$ denotes the use of healthy samples drawn from the same dataset as the pathological test set.
+ denotes the use of healthy samples drawn from the same dataset as the pathological test set.
 $^{\mathcal{P}}$ denotes the use of proxy or self-supervised objectives during training (e.g., masking, synthetic corruption). Specific proxy mechanisms are described in the corresponding architecture subsections.
 Input Dimensionality refers to the sampling or patching strategy used during model training.
 }
@@ -27,73 +27,73 @@ Input Dimensionality refers to the sampling or patching strategy used during mod
 \multicolumn{6}{l}{\textbf{Brain Tumours}} \\
 \midrule
 \citet{Baur2021-2} & AE & In-house &  In-house (Tumour) & FLAIR & Full 3D \\
-\citet{Ghorbel2023} & AE & OASIS-3$^\mathcal{H}$ & BraTS'20 & FLAIR & Patch 2D axial \\
-\citet{Kascenas2023}~*$^\mathcal{P}$ & AE & BraTS'21$^\mathcal{H}$ & BraTS'21 & T1w, T1w Gd, T2w \& FLAIR & Full 2D axial \\
- & & In-house$^\mathcal{H}$ & In-house (Multiple) & CT &  \\
-\citet{Luo2023}~* & AE & In-house & BraTS'19 & T2w & Full 3D \\
-\citet{Meissen2023}~* & AE & Cam-CAN\footnote{\citet{Shafto2014}} \& MOOD\footnote{\citet{Zimmerer2020}} & BraTS'20 & T1w & Partial 2D axial \\
-\citet{Jimenez-Garcia2024}~$^\mathcal{P}$ & AE & IXI & BraTS'20 & T1w, T1w Gd, T2w \& FLAIR & Full 3D \\
-\citet{Lu2024}~$^\mathcal{P}$ & AE & BTD~\footnote{\citet{Cheng2017}}$^\mathcal{H}$ & BTD & T1w Gd & Full 2D patch \\
-\citet{Qu2026} & AE & BraTS'21$^\mathcal{H}$ & BraTS'21 & T1w, T1w Gd T2w \& FLAIR & Full 2D axial\\
+\citet{Ghorbel2023} & AE & OASIS-3 & BraTS'20 & FLAIR & Patch 2D axial \\
+\citet{Kascenas2023} & AE & BraTS'21 & BraTS'21 & T1w, T1w Gd, T2w \& FLAIR & Full 2D axial \\
+ & & In-house & In-house (Multiple) & CT &  \\
+\citet{Luo2023} & AE & In-house & BraTS'19 & T2w & Full 3D \\
+\citet{Meissen2023} & AE & Cam-CAN \& MOOD\ & BraTS'20 & T1w & Partial 2D axial \\
+\citet{Jimenez-Garcia2024} & AE & IXI & BraTS'20 & T1w, T1w Gd, T2w \& FLAIR & Full 3D \\
+\citet{Lu2024} & AE & BTD & BTD & T1w Gd & Full 2D patch \\
+\citet{Qu2026} & AE & BraTS'21 & BraTS'21 & T1w, T1w Gd T2w \& FLAIR & Full 2D axial\\
 \citet{Sato2019} & VAE & IXI & BraTS'17 & T1w, T2w & Full 2D axial\\
-\citet{Uzunova2019}~$^\mathcal{P}$ & VAE & BraTS'15$^\mathcal{H}$ & BraTS'15 & T1w Gd, T2w, FLAIR & Full 2D axial \& 3D \\
-\citet{Zimmerer2019}~* & VAE & HCP & BraTS'17 & not reported & Full 2D axial \\
-\citet{Bengs2021}~$^\mathcal{P}$ & VAE & In-house & BraTS'19 & T1w & Full 3D \\
-\citet{Lambert2021} & VAE & ADNI$^\mathcal{H}$ \& IBC \& Kirby & BraTS'18 & FLAIR & Full 3D \\
-\citet{Chatterjee2022}~*$^\mathcal{P}$ & VAE & IXI \& MOOD$^\mathcal{H}$ & BraTS'17 & T1w Gd, T2w & Full 2D axial \\
-\citet{Pinaya2022-2} & VAE & UKB$^\mathcal{H}$ & BraTS'18 & FLAIR & Full 2D ax. \& 3D\\
+\citet{Uzunova2019} & VAE & BraTS'15 & BraTS'15 & T1w Gd, T2w, FLAIR & Full 2D axial \& 3D \\
+\citet{Zimmerer2019} & VAE & HCP & BraTS'17 & not reported & Full 2D axial \\
+\citet{Bengs2021} & VAE & In-house & BraTS'19 & T1w & Full 3D \\
+\citet{Lambert2021} & VAE & ADNI \& IBC \& Kirby & BraTS'18 & FLAIR & Full 3D \\
+\citet{Chatterjee2022} & VAE & IXI \& MOOD & BraTS'17 & T1w Gd, T2w & Full 2D axial \\
+\citet{Pinaya2022-2} & VAE & UKB & BraTS'18 & FLAIR & Full 2D ax. \& 3D\\
 \citet{Lüth2023} & VAE & HCP & BraTS'17 & T2w & Full 2D axial \\
 \citet{Wijanarko2024}  & VAE & IXI & BraTS'20 & T2w & Full 2D axial \\
-\citet{Dey2021} & GAN & BraTS'19$^\mathcal{H}$ & BraTS'19 & not reported & Full 2D axial \\
-\citet{Nguyen2021} & GAN & NFBS & \textit{Pernet et al.}\footnote{\citet{Pernet2016}} & T1w & Full 2D axial \\
-\citet{Wu2021} & GAN & BraTS'12/18$^\mathcal{H}$ & BraTS'12/18 & T2w & Patch 3D \\
-\citet{Pinaya2022-1} & Diff. & UKB$^\mathcal{H}$ &  BraTS'18 & FLAIR & Full 2D axial\\
-\citet{Wyatt2022}~* & Diff. & NFBS & \textit{Pernet et al.}\footnote{\citet{Pernet2016}} & T1w &  Partial 2D axial \\
-\citet{Behrendt2023}~* & Diff. & IXI & BraTS'21 & T2w & Patch 2D axial \\
-\citet{Iqbal2023}~*$^\mathcal{P}$ & Diff. & IXI & BraTS'21 & T2w & Full 2D axial \\
-\citet{Behrendt2024}~* & Diff. & IXI & BraTS'21 & T2w & Partial 3D \\
-\citet{Fontanella2024}~$^\mathcal{P}$ & Diff. & BraTS'21$^\mathcal{H}$ & BraTS'21 & T1, T1w Gd, T2w \& FLAIR & Partial 2D axial \\
-\citet{Kumar2024}~*$^\mathcal{P}$ & Diff. & IXI & BraTS'20/21 & T2w & Full 2D axial \\
-\citet{Bi2025}~* & Diff. & BraTS'23$^\mathcal{H}$ & BraTS'23 & FLAIR & Partial 2D axial \\
-\citet{Beizaee2026}~*$^\mathcal{P}$ & Diff. & BraTS'21$^\mathcal{H}$ & BraTS'21 & T1w, T1w Gd, T2w \& FLAIR & Partial 2D axial\\
+\citet{Dey2021} & GAN & BraTS'19 & BraTS'19 & not reported & Full 2D axial \\
+\citet{Nguyen2021} & GAN & NFBS & Pernet et al. & T1w & Full 2D axial \\
+\citet{Wu2021} & GAN & BraTS'12/18 & BraTS'12/18 & T2w & Patch 3D \\
+\citet{Pinaya2022-1} & Diff. & UKB &  BraTS'18 & FLAIR & Full 2D axial\\
+\citet{Wyatt2022} & Diff. & NFBS & Pernet et al. & T1w &  Partial 2D axial \\
+\citet{Behrendt2023} & Diff. & IXI & BraTS'21 & T2w & Patch 2D axial \\
+\citet{Iqbal2023} & Diff. & IXI & BraTS'21 & T2w & Full 2D axial \\
+\citet{Behrendt2024} & Diff. & IXI & BraTS'21 & T2w & Partial 3D \\
+\citet{Fontanella2024} & Diff. & BraTS'21 & BraTS'21 & T1, T1w Gd, T2w \& FLAIR & Partial 2D axial \\
+\citet{Kumar2024} & Diff. & IXI & BraTS'20/21 & T2w & Full 2D axial \\
+\citet{Bi2025} & Diff. & BraTS'23 & BraTS'23 & FLAIR & Partial 2D axial \\
+\citet{Beizaee2026} & Diff. & BraTS'21 & BraTS'21 & T1w, T1w Gd, T2w \& FLAIR & Partial 2D axial\\
 \hline
 
 % --- Stroke ---
 \multicolumn{6}{l}{\textbf{Stroke (Acute \& Chronic)}} \\
 \midrule
-\citet{Luo2023}~* & AE & In-house & In-house (Stroke)  & T2w & Full 3D \\
+\citet{Luo2023} & AE & In-house & In-house (Stroke)  & T2w & Full 3D \\
 \citet{Qu2026} & AE & In-house & In-house (Stroke) & CT & Full 2D axial\\
 \citet{Sato2019} & VAE & IXI & ATLAS 1.1 & T1w & Full 2D axial\\
-\citet{Bengs2021}~$^\mathcal{P}$ & VAE & In-house & ATLAS 1.1 & T1w & Full 3D \\
+\citet{Bengs2021} & VAE & In-house & ATLAS 1.1 & T1w & Full 3D \\
 \citet{Lüth2023} & VAE & HCP & ISLES 2015 & T2w & Full 2D axial \\
-\citet{Bercea2023}~*$^\mathcal{P}$ & Diff. & IXI \& FastMRI+ & ATLAS 2.0 & T1w & Partial 2D axial \\
-\citet{Behrendt2024}~* & Diff. & IXI & ATLAS 2.0 & T1w & Partial 3D \\
-\citet{Bercea2024}~*$^\mathcal{P}$ & Diff. & IXI & ATLAS 2.0 & T1w & Full 2D axial \\
-\citet{Beizaee2026}~*$^\mathcal{P}$ & Diff. & ATLAS 2.0$^\mathcal{H}$ & ATLAS 2.0 & T1w & Partial 2D axial\\
+\citet{Bercea2023} & Diff. & IXI \& FastMRI+ & ATLAS 2.0 & T1w & Partial 2D axial \\
+\citet{Behrendt2024} & Diff. & IXI & ATLAS 2.0 & T1w & Partial 3D \\
+\citet{Bercea2024} & Diff. & IXI & ATLAS 2.0 & T1w & Full 2D axial \\
+\citet{Beizaee2026} & Diff. & ATLAS 2.0 & ATLAS 2.0 & T1w & Partial 2D axial\\
 \hline
 
 % --- MS and WMH ---
 \multicolumn{6}{l}{\textbf{Multiple Sclerosis (MS) \& White Matter Hyperintensities (WMH)}} \\
 \midrule
 \citet{Baur2018} & AE & In-house & In-house (MS) & T1w, FLAIR & Full 2D axial \\
-\citet{Ghorbel2023} & AE & OASIS-3$^\mathcal{H}$ & MSLUB & FLAIR & Patch 2D axial \\
-\citet{Luo2023}~* & AE & In-house & In-house (MS) & T2w & Full 3D \\
-\citet{Lambert2021} & VAE & ADNI$^\mathcal{H}$ \& IBC \& Kirby & MSSEG, WMH & FLAIR & Full 3D \\
-\citet{Pinaya2022-2} & VAE & UKB$^\mathcal{H}$ & MSLUB & FLAIR & Full 2D ax. \& 3D\\
+\citet{Ghorbel2023} & AE & OASIS-3 & MSLUB & FLAIR & Patch 2D axial \\
+\citet{Luo2023} & AE & In-house & In-house (MS) & T2w & Full 3D \\
+\citet{Lambert2021} & VAE & ADNI \& IBC \& Kirby & MSSEG, WMH & FLAIR & Full 3D \\
+\citet{Pinaya2022-2} & VAE & UKB & MSLUB & FLAIR & Full 2D ax. \& 3D\\
  & & & WMH & FLAIR & \\
-\citet{Dey2021} & GAN & ISBI'15$^\mathcal{H}$ & ISBI'15 & T2w or FLAIR not reported & Full 2D axial \\
-\citet{Pinaya2022-1} & Diff. & UKB$^\mathcal{H}$ & MSLUB & FLAIR & Full 2D axial\\
+\citet{Dey2021} & GAN & ISBI'15 & ISBI'15 & T2w or FLAIR not reported & Full 2D axial \\
+\citet{Pinaya2022-1} & Diff. & UKB & MSLUB & FLAIR & Full 2D axial\\
  & & & WMH & FLAIR &  \\
-\citet{Behrendt2023}~* & Diff. & IXI & MSLUB & T2w & Patch 2D axial \\
-\citet{Iqbal2023}~*$^\mathcal{P}$ & Diff. & IXI & MSLUB & T2w & Full 2D axial \\
-\citet{Behrendt2024}~* & Diff. & IXI & MSLUB & T2w & Partial 3D \\
+\citet{Behrendt2023} & Diff. & IXI & MSLUB & T2w & Patch 2D axial \\
+\citet{Iqbal2023} & Diff. & IXI & MSLUB & T2w & Full 2D axial \\
+\citet{Behrendt2024} & Diff. & IXI & MSLUB & T2w & Partial 3D \\
  & & & WMH & T1w & \\
-\citet{Fontanella2024}~$^\mathcal{P}$ & Diff. & BraTS'21$^\mathcal{H}$ & WMH & T1w, FLAIR & Partial 2D axial \\
-\citet{Kumar2024}~*$^\mathcal{P}$ & Diff. & IXI & MSLUB & T2w & Full 2D axial \\
+\citet{Fontanella2024} & Diff. & BraTS'21 & WMH & T1w, FLAIR & Partial 2D axial \\
+\citet{Kumar2024} & Diff. & IXI & MSLUB & T2w & Full 2D axial \\
 \hline
 
 % --- TBI ---
 \multicolumn{6}{l}{\textbf{Traumatic Brain Injury (TBI)}} \\
 \midrule
-\citet{Simarro2020} & GAN & Center-TBI\footnote{\citet{Steyerberg2019}}$^\mathcal{H}$ & Center-TBI & CT & Full 3D\\
+\citet{Simarro2020} & GAN & Center-TBI & Center-TBI & CT & Full 3D\\
 \end{longtable}

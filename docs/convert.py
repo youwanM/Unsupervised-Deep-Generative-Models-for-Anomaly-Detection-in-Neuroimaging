@@ -11,15 +11,21 @@ def clean_latex(text):
     text = text.replace('$^\\mathcal{H}$', '').replace('$^\\mathcal{P}$', '')
     text = text.replace('^\\mathcal{H}', '').replace('^\\mathcal{P}', '')
     
-    # Remove footnotes entirely
+    # Remove footnotes and specific formatting tags
     text = re.sub(r'\\footnote\{[^}]+\}', '', text)
+    text = text.replace('\\footnotesize', '')
     
     # Extract text from \citet{...}, \textbf{...}, \textit{...}
     text = re.sub(r'\\[a-zA-Z]+\{([^}]+)\}', r'\1', text)
     
-    # Remove lingering slashes, asterisk formats, and whitespace
-    text = text.replace('~*', '*').replace('\\', '').replace('$', '').strip()
+    # Remove lingering slashes, asterisk formats, brackets, and whitespace
+    text = text.replace('~*', '*').replace('\\', '').replace('$', '')
+    text = text.replace('{', '').replace('}', '').strip()
     
+    # If the cell is explicitly an empty dash, format it as N/A
+    if text == '--':
+        return "N/A"
+        
     return text
 
 def parse_bib(filepath):
@@ -32,18 +38,14 @@ def parse_bib(filepath):
         print(f"Warning: Could not find {filepath}. Method links will be empty.")
         return bib_links
 
-    # Split the file by entries
     entries = content.split('@')
     for entry in entries:
         if not entry.strip(): continue
-        
-        # Extract the citation key (e.g., Lu2024)
         try:
             key = entry.split('{', 1)[1].split(',', 1)[0].strip()
         except IndexError:
             continue
             
-        # Extract URL or DOI
         url_match = re.search(r'url\s*=\s*\{([^}]+)\}', entry)
         doi_match = re.search(r'doi\s*=\s*\{([^}]+)\}', entry)
         
@@ -52,7 +54,6 @@ def parse_bib(filepath):
             link = url_match.group(1).strip()
         elif doi_match:
             doi = doi_match.group(1).strip()
-            # Ensure DOI is formatted as a full web link
             link = doi if doi.startswith('http') else f"https://doi.org/{doi}"
             
         if link:
@@ -60,12 +61,14 @@ def parse_bib(filepath):
             
     return bib_links
 
-def parse_tex(filepath):
-    """Parses a LaTeX table, tracking disease categories and empty method rows."""
+def parse_tex(filepath, expected_cols, carry_over_indices):
+    """
+    Parses a LaTeX table, dynamically padding missing columns and carrying over 
+    specific empty cells from previous rows.
+    """
     data = []
     current_disease = "Unknown"
-    last_method = ""
-    last_arch = ""
+    last_values = [""] * expected_cols
     
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -88,30 +91,40 @@ def parse_tex(filepath):
             raw_cells = line.split('\\\\')[0].split('&')
             cleaned_cells = [clean_latex(cell) for cell in raw_cells]
             
+            # Pad the row if it's missing trailing ampersands
+            while len(cleaned_cells) < expected_cols:
+                cleaned_cells.append("")
+                
             if not cleaned_cells or len(cleaned_cells) < 2: continue
             if "Method" in cleaned_cells[0]: continue
                 
-            if cleaned_cells[0] == "":
-                cleaned_cells[0] = last_method
-            else:
-                last_method = cleaned_cells[0]
-                
-            if cleaned_cells[1] == "":
-                cleaned_cells[1] = last_arch
-            else:
-                last_arch = cleaned_cells[1]
+            # Apply carry-over logic only for specified columns
+            for idx in range(expected_cols):
+                if cleaned_cells[idx] == "" and idx in carry_over_indices:
+                    cleaned_cells[idx] = last_values[idx]
+                else:
+                    last_values[idx] = cleaned_cells[idx]
             
-            row_data = [current_disease] + cleaned_cells
+            row_data = [current_disease] + cleaned_cells[:expected_cols]
             data.append(row_data)
             
     return data
 
+def add_note(existing, new_note):
+    """Helper to safely concatenate notes without duplicating."""
+    if not new_note or new_note == "N/A": return existing
+    if not existing or existing == "N/A": return new_note
+    if new_note not in existing: return f"{existing} | {new_note}"
+    return existing
+
 def merge_data():
     print("Reading files...")
     bib_links = parse_bib("references.bib")
-    dice_data = parse_tex("DiceTable.tex")
-    detection_data = parse_tex("DetectionTable.tex")
-    method_data = parse_tex("MethodTable.tex")
+    
+    # Defined specific indices to carry over blanks for each table type
+    method_data = parse_tex("MethodTable.tex", expected_cols=6, carry_over_indices=[0, 1, 2, 4, 5])
+    dice_data = parse_tex("DiceTable.tex", expected_cols=6, carry_over_indices=[0, 1, 2, 4])
+    detection_data = parse_tex("DetectionTable.tex", expected_cols=7, carry_over_indices=[0, 1, 2, 5])
 
     merged_dict = {}
 
@@ -121,53 +134,58 @@ def merge_data():
         return f"{m}__{d}"
 
     def get_clean_method_name(method):
-        """Strips asterisks and formatting to match the clean BibTeX key."""
         return method.replace('*', '').replace('~', '').strip()
 
-    # Base Data from MethodTable
+    # 1. Base Data from MethodTable
     for row in method_data:
-        if len(row) < 7: continue
-        disease, method, arch, train_ds, test_ds, modality = row[0], row[1], row[2], row[3], row[4], row[5]
+        disease, method, arch, train_ds, test_ds, modality, input_dim = row[0], row[1], row[2], row[3], row[4], row[5], row[6]
         key = make_key(method, test_ds)
         bib_key = get_clean_method_name(method)
         
         merged_dict[key] = {
             "disease": disease, "method": method, "url": bib_links.get(bib_key, ""), "arch": arch,
-            "trainData": train_ds, "testData": test_ds, "modality": modality,
-            "dice": "N/A", "auroc": "N/A", "auprc": "N/A", "evalLevel": "N/A"
+            "trainData": train_ds if train_ds else "N/A", 
+            "testData": test_ds if test_ds else "N/A", 
+            "modality": modality if modality else "N/A",
+            "inputDim": input_dim if input_dim else "N/A",
+            "dice": "N/A", "auroc": "N/A", "auprc": "N/A", 
+            "threshStrategy": "N/A", "evalLevel": "N/A", "notes": ""
         }
 
-    # Merge Dice Metrics
+    # 2. Merge Dice Metrics
     for row in dice_data:
-        if len(row) < 6: continue
-        disease, method, arch, test_ds, dice = row[0], row[1], row[2], row[3], row[4]
+        disease, method, arch, test_ds, dice, thresh, notes = row[0], row[1], row[2], row[3], row[4], row[5], row[6]
         key = make_key(method, test_ds)
         bib_key = get_clean_method_name(method)
         
         if key not in merged_dict:
             merged_dict[key] = {
                 "disease": disease, "method": method, "url": bib_links.get(bib_key, ""), "arch": arch,
-                "trainData": "N/A", "testData": test_ds, "modality": "N/A",
-                "dice": "N/A", "auroc": "N/A", "auprc": "N/A", "evalLevel": "N/A"
+                "trainData": "N/A", "testData": test_ds, "modality": "N/A", "inputDim": "N/A",
+                "dice": "N/A", "auroc": "N/A", "auprc": "N/A", 
+                "threshStrategy": "N/A", "evalLevel": "N/A", "notes": ""
             }
-        merged_dict[key]["dice"] = dice
+        merged_dict[key]["dice"] = dice if dice else "N/A"
+        if thresh: merged_dict[key]["threshStrategy"] = thresh
+        merged_dict[key]["notes"] = add_note(merged_dict[key]["notes"], notes)
 
-    # Merge Detection Metrics
+    # 3. Merge Detection Metrics
     for row in detection_data:
-        if len(row) < 8: continue
-        disease, method, arch, test_ds, auroc, auprc, eval_lvl = row[0], row[1], row[2], row[3], row[4], row[5], row[6]
+        disease, method, arch, test_ds, auroc, auprc, eval_lvl, notes = row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7]
         key = make_key(method, test_ds)
         bib_key = get_clean_method_name(method)
         
         if key not in merged_dict:
             merged_dict[key] = {
                 "disease": disease, "method": method, "url": bib_links.get(bib_key, ""), "arch": arch,
-                "trainData": "N/A", "testData": test_ds, "modality": "N/A",
-                "dice": "N/A", "auroc": "N/A", "auprc": "N/A", "evalLevel": "N/A"
+                "trainData": "N/A", "testData": test_ds, "modality": "N/A", "inputDim": "N/A",
+                "dice": "N/A", "auroc": "N/A", "auprc": "N/A", 
+                "threshStrategy": "N/A", "evalLevel": "N/A", "notes": ""
             }
-        merged_dict[key]["auroc"] = auroc.replace('--', 'N/A') if auroc.strip() != '--' else 'N/A'
-        merged_dict[key]["auprc"] = auprc.replace('--', 'N/A') if auprc.strip() != '--' else 'N/A'
-        merged_dict[key]["evalLevel"] = eval_lvl
+        merged_dict[key]["auroc"] = auroc if auroc else "N/A"
+        merged_dict[key]["auprc"] = auprc if auprc else "N/A"
+        if eval_lvl: merged_dict[key]["evalLevel"] = eval_lvl
+        merged_dict[key]["notes"] = add_note(merged_dict[key]["notes"], notes)
 
     merged_data_array = list(merged_dict.values())
 

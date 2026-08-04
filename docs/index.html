@@ -55,10 +55,13 @@
                 <th>Train Dataset</th>
                 <th>Test Dataset</th>
                 <th>Modality</th>
+                <th>Input Dim.</th>
                 <th>Dice</th>
+                <th>Thresh. Strategy</th>
                 <th>AUROC</th>
                 <th>AUPRC</th>
                 <th>Eval Level</th>
+                <th>Notes</th>
             </tr>
         </thead>
         <tbody>
@@ -85,11 +88,9 @@
                 { 
                     data: 'method',
                     render: function(data, type, row) {
-                        // If a URL was successfully extracted from the BibTeX, render it as a clickable link
                         if (row.url && row.url !== "") {
                             return '<a href="' + row.url + '" target="_blank" style="text-decoration: none; font-weight: bold;">' + data + '</a>';
                         }
-                        // Otherwise, just display the plain text
                         return data;
                     }
                 },
@@ -97,10 +98,13 @@
                 { data: 'trainData' },
                 { data: 'testData' },
                 { data: 'modality' },
+                { data: 'inputDim' }, // NEW COLUMN
                 { data: 'dice' },
+                { data: 'threshStrategy' }, // NEW COLUMN
                 { data: 'auroc' },
                 { data: 'auprc' },
-                { data: 'evalLevel' }
+                { data: 'evalLevel' },
+                { data: 'notes' } // NEW COLUMN
             ],
             pageLength: 15,
             responsive: true,
