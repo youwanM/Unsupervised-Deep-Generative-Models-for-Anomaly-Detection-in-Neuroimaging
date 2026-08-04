@@ -24,7 +24,7 @@ def clean_latex(text):
     
     # If the cell is explicitly an empty dash, format it as N/A
     if text == '--':
-        return "N/A"
+        return "--"
         
     return text
 
@@ -148,7 +148,7 @@ def merge_data():
             "testData": test_ds if test_ds else "N/A", 
             "modality": modality if modality else "N/A",
             "inputDim": input_dim if input_dim else "N/A",
-            "dice": "N/A", "auroc": "N/A", "auprc": "N/A", 
+            "dice": "--", "auroc": "--", "auprc": "--", 
             "threshStrategy": "N/A", "evalLevel": "N/A", "notes": ""
         }
 
@@ -165,7 +165,7 @@ def merge_data():
                 "dice": "N/A", "auroc": "N/A", "auprc": "N/A", 
                 "threshStrategy": "N/A", "evalLevel": "N/A", "notes": ""
             }
-        merged_dict[key]["dice"] = dice if dice else "N/A"
+        merged_dict[key]["dice"] = dice if dice else "--"
         if thresh: merged_dict[key]["threshStrategy"] = thresh
         merged_dict[key]["notes"] = add_note(merged_dict[key]["notes"], notes)
 
@@ -182,8 +182,8 @@ def merge_data():
                 "dice": "N/A", "auroc": "N/A", "auprc": "N/A", 
                 "threshStrategy": "N/A", "evalLevel": "N/A", "notes": ""
             }
-        merged_dict[key]["auroc"] = auroc if auroc else "N/A"
-        merged_dict[key]["auprc"] = auprc if auprc else "N/A"
+        merged_dict[key]["auroc"] = auroc if auroc else "--"
+        merged_dict[key]["auprc"] = auprc if auprc else "--"
         if eval_lvl: merged_dict[key]["evalLevel"] = eval_lvl
         merged_dict[key]["notes"] = add_note(merged_dict[key]["notes"], notes)
 
