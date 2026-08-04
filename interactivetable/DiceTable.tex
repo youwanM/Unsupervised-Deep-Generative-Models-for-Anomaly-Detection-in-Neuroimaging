@@ -1,0 +1,97 @@
+\begin{longtable}{lp{1.2cm}lclp{5.5cm}}
+\caption{Performance comparison using segmentation metrics (Dice similarity coefficient). Methods are grouped by model family (Autoencoders, VAEs, GANs, and Diffusion models), as defined in Table~\ref{tab:method_summary}. This summary details the reported Dice scores alongside the specific thresholding strategies employed to binarise residual maps (e.g., post-hoc optimisation, validation set, or percentile-based thresholding). Only studies that explicitly reported segmentation performance using the Dice metric are included.}
+\label{tab:dice_summary}
+\\
+\toprule
+\textbf{Method} & \textbf{Arch.} & \textbf{Test Dataset} & \textbf{Dice} & \textbf{Thresh. Strategy} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Method} & \textbf{Arch.} & \textbf{Test Dataset} & \textbf{Dice} & \textbf{Thresh. Strategy} & \textbf{Notes} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% --- Brain Tumours ---
+\multicolumn{6}{l}{\textbf{Brain Tumours}} \\
+\midrule
+\citet{Baur2021-2} & AE & In-house & 0.390 & Validation set & Evaluated on Tumour\\
+\citet{Luo2023}~* & AE & BraTS'19 & 0.462 & Validation set & \\
+\citet{Meissen2023}~* & AE & BraTS'20 & 0.400 & Percentile-based & \\
+\citet{Jimenez-Garcia2024} & AE & BraTS'20 & 0.471 & Validation set & \\
+\citet{Uzunova2019} & VAE & BraTS'15 & 0.550 & Validation set & {Evaluated in 2D on T1w Gd}\\
+ & & & 0.320 &  & {Evaluated in 3D on T1w Gd}\\
+ & & & 0.500 &  & {Evaluated in 3D on fusion of T1w Gd, T2w \& FLAIR}\\
+\citet{Zimmerer2019}~* & VAE & BraTS'17 & 0.440 & Validation set & \\
+\citet{Bengs2021} & VAE & BraTS'19 & 0.301 & Validation set & \\
+\citet{Lambert2021} & VAE & BraTS'18 & 0.650 & Validation set & \\
+\citet{Chatterjee2022}~* & VAE & BraTS'17 & 0.531 & Histogram-based & {Evaluated on T1w Gd}\\
+ & & & 0.642 & & {Evaluated on T2w}\\
+\citet{Wijanarko2024} & VAE & BraTS'20 & 0.606 & Fixed & \\
+\citet{Dey2021} & GAN & BraTS'19 & 0.680 & Histogram-based & \\
+\citet{Nguyen2021} & GAN & \textit{Pernet et al.}\footnote{\citet{Pernet2016}} & 0.770 & Histogram-based & \\
+\citet{Wu2021} & GAN & BraTS'12/18 & 0.630 & Percentile-based & \\
+\citet{Wyatt2022}~* & Diff. & \textit{Pernet et al.}\footnote{\citet{Pernet2016}} & 0.383 & Fixed & \\
+\citet{Behrendt2023}~* & Diff. & BraTS'21 & 0.490 & Validation set & \\
+\citet{Behrendt2024}~* & Diff. & BraTS'21 & 0.574 & Validation set & \\
+\citet{Fontanella2024} & Diff. & BraTS'21 & 0.699 & Validation set & \\
+\addlinespace
+\multicolumn{6}{l}{\textit{\small --- Studies using Retrospectively Optimized (Oracle) Thresholds ---}} \\
+\addlinespace
+\citet{Ghorbel2023} & AE & BraTS'20 & 0.502 & Post-hoc optimisation & \\
+\citet{Kascenas2023}~* & AE & BraTS'21 & 0.773 & Post-hoc optimisation & \\
+ & & In-house (Multiple) & 0.674 & & \\
+\citet{Pinaya2022-2} & VAE & BraTS'18 & 0.537 & Post-hoc optimisation & {Evaluated in 2D}\\
+ & & BraTS'18 & 0.617 & Post-hoc optimisation & {Evaluated in 3D}\\
+\citet{Pinaya2022-1} & Diff. & BraTS'18 & 0.398 & Post-hoc optimisation & \\
+\citet{Iqbal2023}~* & Diff. & BraTS'21 & 0.530 & Post-hoc optimisation & \\
+\citet{Kumar2024}~* & Diff. & BraTS'20 & 0.371 & Post-hoc optimisation & \\
+ & & BraTS'21 & 0.506 &  & \\
+\citet{Bi2025}~* & Diff. & BraTS'23 & 0.738 & Post-hoc optimisation & \\
+\citet{Beizaee2026}~* & Diff. & BraTS'21 & 0.697 & Post-hoc optimisation & {Evaluated on T1w}\\
+ & & & 0.730 & & {Evaluated on T1w Gd}\\
+ & & & 0.803 & & {Evaluated on T2w}\\
+ & & & 0.851 & & {Evaluated on FLAIR}\\
+\hline
+
+% --- Stroke ---
+\multicolumn{6}{l}{\textbf{Stroke (Acute \& Chronic)}} \\
+\midrule
+\citet{Bengs2021} & VAE & ATLAS 1.1 & 0.331 & Validation set & \\
+\citet{Behrendt2024}~* & Diff. & ATLAS 2.0 & 0.148 & Validation set & \\
+\addlinespace
+\multicolumn{6}{l}{\textit{\small --- Studies using Retrospectively Optimized (Oracle) Thresholds ---}} \\
+\addlinespace
+\citet{Bercea2023}~* & Diff. & ATLAS 2.0 & 0.228 & Post-hoc optimisation & \\
+\citet{Bercea2024}~* & Diff. & ATLAS 2.0 & 0.297 & Post-hoc optimisation & \\
+\citet{Beizaee2026}~* & Diff. & ATLAS 2.0 & 0.416 & Post-hoc optimisation & \\
+\hline
+
+% --- MS and WMH ---
+\multicolumn{6}{l}{\textbf{Multiple Sclerosis (MS) \& White Matter Hyperintensities (WMH)}} \\
+\midrule
+\citet{Baur2018} & AE & In-house & 0.605 & Percentile-based & Evaluated on MS\\
+\citet{Lambert2021} & VAE & WMH, MSSEG & 0.463 & Validation set & \\
+\citet{Dey2021} & GAN & ISBI'15 & 0.482 & Histogram-based & \\
+\citet{Behrendt2023}~* & Diff. & MSLUB & 0.105 & Validation set & \\
+\citet{Behrendt2024}~* & Diff. & MSLUB & 0.061 & Validation set & \\
+ & & WMH & 0.132 & Validation set & \\
+\citet{Fontanella2024} & Diff. & WMH & 0.569 & Validation set & \\
+\addlinespace
+\multicolumn{6}{l}{\textit{\small --- Studies using Retrospectively Optimized (Oracle) Thresholds ---}} \\
+\addlinespace
+\citet{Ghorbel2023} & AE & MSLUB & 0.173 & Post-hoc optimisation & \\
+\citet{Pinaya2022-2} & VAE & MSLUB & 0.378 & Post-hoc optimisation & {Evaluated in 2D}\\
+ & & WMH & 0.429 & Post-hoc optimisation & {Evaluated in 2D}\\
+ & & MSLUB & 0.133 & Post-hoc optimisation & {Evaluated in 3D}\\
+ & & WMH & 0.133 & Post-hoc optimisation & {Evaluated in 3D}\\
+\citet{Pinaya2022-1} & Diff. & MSLUB & 0.247 & Post-hoc optimisation & \\
+ & &  WMH & 0.298 & Post-hoc optimisation & \\
+\citet{Iqbal2023}~* & Diff. & MSLUB & 0.107 & Post-hoc optimisation & \\
+\citet{Kumar2024}~* & Diff. & MSLUB & 0.055 & Post-hoc optimisation & \\
+\end{longtable}
