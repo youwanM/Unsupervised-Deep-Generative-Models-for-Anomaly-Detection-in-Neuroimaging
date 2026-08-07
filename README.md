@@ -2,6 +2,8 @@
 
 This repository supports the review paper **"Unsupervised Deep Generative Models for Anomaly Detection in Neuroimaging"**. It provides materials and scripts to facilitate reproducibility and further exploration of the reviewed literature.
 
+You can visualise the long tables in an in-browser interactive table [HERE](https://youwanm.github.io/Unsupervised-Deep-Generative-Models-for-Anomaly-Detection-in-Neuroimaging/)
+
 ## Repository Contents
 
 - **ArXiv Collector Script**
