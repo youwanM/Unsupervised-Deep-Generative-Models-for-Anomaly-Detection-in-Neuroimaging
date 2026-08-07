@@ -76,7 +76,7 @@
 \multicolumn{6}{l}{\textbf{Multiple Sclerosis (MS) and White Matter Hyperintensities (WMH)}} \\
 \midrule
 \citet{Baur2018} & AE & In-house (MS) & 0.605 & Percentile-based & Evaluated on MS\\
-\citet{Lambert2021} & VAE & WMH, MSSEG & 0.463 & Validation set & \\
+\citet{Lambert2021} & VAE & MSSEG, WMH & 0.463 & Validation set & \\
 \citet{Dey2021} & GAN & ISBI'15 & 0.482 & Histogram-based & \\
 \citet{Behrendt2023} & Diff. & MSLUB & 0.105 & Validation set & \\
 \citet{Behrendt2024} & Diff. & MSLUB & 0.061 & Validation set & \\
@@ -86,12 +86,12 @@
 \multicolumn{6}{l}{\textit{\small --- Studies using Retrospectively Optimized (Oracle) Thresholds ---}} \\
 \addlinespace
 \citet{Ghorbel2023} & AE & MSLUB & 0.173 & Post-hoc optimisation & \\
-\citet{Pinaya2022-2} & VAE & MSLUB & 0.378 & Post-hoc optimisation & {Evaluated in 2D}\\
- & & WMH & 0.429 & Post-hoc optimisation & {Evaluated in 2D}\\
- & & MSLUB & 0.133 & Post-hoc optimisation & {Evaluated in 3D}\\
- & & WMH & 0.133 & Post-hoc optimisation & {Evaluated in 3D}\\
+\citet{Pinaya2022-2} & VAE & MSLUB (2D)& 0.378 & Post-hoc optimisation & {Evaluated in 2D}\\
+\citet{Pinaya2022-2} & VAE & WMH (2D)& 0.429 & Post-hoc optimisation & {Evaluated in 2D}\\
+\citet{Pinaya2022-2} & VAE & MSLUB (3D) & 0.133 & Post-hoc optimisation & {Evaluated in 3D}\\
+\citet{Pinaya2022-2} & VAE & WMH (3D) & 0.133 & Post-hoc optimisation & {Evaluated in 3D}\\
 \citet{Pinaya2022-1} & Diff. & MSLUB & 0.247 & Post-hoc optimisation & \\
- & &  WMH & 0.298 & Post-hoc optimisation & \\
+\citet{Pinaya2022-1} & Diff. & WMH & 0.298 & Post-hoc optimisation & \\
 \citet{Iqbal2023} & Diff. & MSLUB & 0.107 & Post-hoc optimisation & \\
 \citet{Kumar2024} & Diff. & MSLUB & 0.055 & Post-hoc optimisation & \\
 \end{longtable}
