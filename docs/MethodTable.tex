@@ -1,0 +1,110 @@
+\begin{longtable}{p{4.2cm}p{1.3cm}p{3.2cm}p{3cm}p{4cm}p{3.3cm}}
+\caption{Comparison of unsupervised anomaly detection methods and their experimental setups.
+MS: Multiple Sclerosis; TBI: Traumatic Brain Injury; WMH: White Matter Hyperintensities.
+* denotes the presence of a working link to a GitHub repository.  
+ denotes the use of healthy samples drawn from the same dataset as the pathological test set.
+$^{\mathcal{P}}$ denotes the use of proxy or self-supervised objectives during training (e.g., masking, synthetic corruption). Specific proxy mechanisms are described in the corresponding architecture subsections.
+Input Dimensionality refers to the sampling or patching strategy used during model training.
+}
+\label{tab:method_summary}
+\\
+\toprule
+\textbf{Method} & \textbf{Arch.} & \textbf{Train Dataset} & \textbf{Test Dataset} & \textbf{Imaging Modality} & \textbf{Input Dimensionality} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Method} & \textbf{Arch.} & \textbf{Train Dataset} & \textbf{Test Dataset} & \textbf{Imaging Modality} & \textbf{Input Dimensionality} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% --- Brain Tumours ---
+\multicolumn{6}{l}{\textbf{Brain Tumours}} \\
+\midrule
+\citet{Baur2021-2} & AE & In-house &  In-house (Tumour) & FLAIR & Full 3D \\
+\citet{Baur2021-2} & AE & In-house &  In-house (MS) & FLAIR & Full 3D \\
+\citet{Ghorbel2023} & AE & OASIS-3 & BraTS'20 & FLAIR & Patch 2D axial \\
+\citet{Kascenas2023} & AE & BraTS'21 & BraTS'21 & T1w, T1w Gd, T2w and FLAIR & Full 2D axial \\
+ & & In-house & In-house (Multiple) & CT &  \\
+\citet{Luo2023} & AE & In-house & BraTS'19 & T2w & Full 3D \\
+\citet{Meissen2023} & AE & Cam-CAN and MOOD\ & BraTS'20 & T1w & Partial 2D axial \\
+\citet{Jimenez-Garcia2024} & AE & IXI & BraTS'20 & T1w, T1w Gd, T2w and FLAIR & Full 3D \\
+\citet{Lu2024} & AE & BTD & BTD & T1w Gd & Full 2D patch \\
+\citet{Qu2026} & AE & BraTS'21 & BraTS'21 & T1w, T1w Gd T2w and FLAIR & Full 2D axial\\
+\citet{Sato2019} & VAE & IXI & BraTS'17 & T1w, T2w & Full 2D axial\\
+\citet{Uzunova2019} & VAE & BraTS'15 & BraTS'15 (T1w Gd, 2D) & T1w Gd, T2w, FLAIR & Full 2D axial \\
+\citet{Uzunova2019} & VAE & BraTS'15 & BraTS'15 (T1w Gd, 3D) & T1w Gd, T2w, FLAIR & Full 3D \\
+\citet{Uzunova2019} & VAE & BraTS'15 & BraTS'15 (fusion) & T1w Gd, T2w, FLAIR & Full 3D \\
+\citet{Zimmerer2019} & VAE & HCP & BraTS'17 & not reported & Full 2D axial \\
+\citet{Bengs2021} & VAE & In-house & BraTS'19 & T1w & Full 3D \\
+\citet{Lambert2021} & VAE & ADNI and IBC and Kirby & BraTS'18 & FLAIR & Full 3D \\
+\citet{Chatterjee2022} & VAE & IXI and MOOD & BraTS'17 & T1w Gd, T2w & Full 2D axial \\
+\citet{Pinaya2022-2} & VAE & UKB & BraTS'18 & FLAIR & Full 2D ax. and 3D\\
+\citet{Lüth2023} & VAE & HCP & BraTS'17 & T2w & Full 2D axial \\
+\citet{Wijanarko2024}  & VAE & IXI & BraTS'20 & T2w & Full 2D axial \\
+\citet{Dey2021} & GAN & BraTS'19 & BraTS'19 & not reported & Full 2D axial \\
+\citet{Nguyen2021} & GAN & NFBS & Pernet et al. & T1w & Full 2D axial \\
+\citet{Wu2021} & GAN & BraTS'12/18 & BraTS'12/18 & T2w & Patch 3D \\
+\citet{Pinaya2022-1} & Diff. & UKB &  BraTS'18 & FLAIR & Full 2D axial\\
+\citet{Wyatt2022} & Diff. & NFBS & Pernet et al. & T1w &  Partial 2D axial \\
+\citet{Behrendt2023} & Diff. & IXI & BraTS'21 & T2w & Patch 2D axial \\
+\citet{Iqbal2023} & Diff. & IXI & BraTS'21 & T2w & Full 2D axial \\
+\citet{Behrendt2024} & Diff. & IXI & BraTS'21 & T2w & Partial 3D \\
+\citet{Fontanella2024} & Diff. & BraTS'21 & BraTS'21 & T1, T1w Gd, T2w and FLAIR & Partial 2D axial \\
+\citet{Kumar2024} & Diff. & IXI & BraTS'21 & T2w & Full 2D axial \\
+\citet{Kumar2024} & Diff. & IXI & BraTS'20 & T2w & Full 2D axial \\
+\citet{Bi2025} & Diff. & BraTS'23 & BraTS'23 & FLAIR & Partial 2D axial \\
+\citet{Beizaee2026} & Diff. & BraTS'21 & BraTS'21 (T1w)& T1w & Partial 2D axial\\
+\citet{Beizaee2026} & Diff. & BraTS'21 & BraTS'21 (T1w Gd)& T1w Gd & Partial 2D axial\\
+\citet{Beizaee2026} & Diff. & BraTS'21 & BraTS'21 (T2w)& T2w & Partial 2D axial\\
+\citet{Beizaee2026} & Diff. & BraTS'21 & BraTS'21 (FLAIR)& FLAIR & Partial 2D axial\\
+
+\hline
+
+% --- Stroke ---
+\multicolumn{6}{l}{\textbf{Stroke (Acute and Chronic)}} \\
+\midrule
+\citet{Luo2023} & AE & In-house & In-house (Stroke)  & T2w & Full 3D \\
+\citet{Qu2026} & AE & In-house & In-house (Stroke) & CT & Full 2D axial\\
+\citet{Sato2019} & VAE & IXI & ATLAS 1.1 & T1w & Full 2D axial\\
+\citet{Bengs2021} & VAE & In-house & ATLAS 1.1 & T1w & Full 3D \\
+\citet{Lüth2023} & VAE & HCP & ISLES 2015 & T2w & Full 2D axial \\
+\citet{Bercea2023} & Diff. & IXI and FastMRI+ & ATLAS 2.0 & T1w & Partial 2D axial \\
+\citet{Behrendt2024} & Diff. & IXI & ATLAS 2.0 & T1w & Partial 3D \\
+\citet{Bercea2024} & Diff. & IXI & ATLAS 2.0 & T1w & Full 2D axial \\
+\citet{Beizaee2026} & Diff. & ATLAS 2.0 & ATLAS 2.0 & T1w & Partial 2D axial\\
+\hline
+
+% --- MS and WMH ---
+\multicolumn{6}{l}{\textbf{Multiple Sclerosis (MS) and White Matter Hyperintensities (WMH)}} \\
+\midrule
+\citet{Baur2018} & AE & In-house & In-house (MS) & T1w, FLAIR & Full 2D axial \\
+\citet{Ghorbel2023} & AE & OASIS-3 & MSLUB & FLAIR & Patch 2D axial \\
+\citet{Luo2023} & AE & In-house & In-house (MS) & T2w & Full 3D \\
+\citet{Lambert2021} & VAE & ADNI and IBC and Kirby & MSSEG, WMH & FLAIR & Full 3D \\
+\citet{Pinaya2022-2} & VAE & UKB & MSLUB (2D)& FLAIR & Full 2D ax.\\
+\citet{Pinaya2022-2} & VAE & UKB & WMH (2D)& FLAIR & Full 2D ax.\\
+\citet{Pinaya2022-2} & VAE & UKB & MSLUB (3D) & FLAIR & 3D\\
+\citet{Pinaya2022-2} & VAE & UKB & WMH (3D)& FLAIR & 3D\\
+\citet{Pinaya2022-2} & VAE & UKB & MSLUB & FLAIR & 2D\\
+\citet{Dey2021} & GAN & ISBI'15 & ISBI'15 & T2w or FLAIR not reported & Full 2D axial \\
+\citet{Pinaya2022-1} & Diff. & UKB & MSLUB & FLAIR & Full 2D axial\\
+ & & & WMH & FLAIR &  \\
+\citet{Behrendt2023} & Diff. & IXI & MSLUB & T2w & Patch 2D axial \\
+\citet{Iqbal2023} & Diff. & IXI & MSLUB & T2w & Full 2D axial \\
+\citet{Behrendt2024} & Diff. & IXI & MSLUB & T2w & Partial 3D \\
+ & & & WMH & T1w & \\
+\citet{Fontanella2024} & Diff. & BraTS'21 & WMH & T1w, FLAIR & Partial 2D axial \\
+\citet{Kumar2024} & Diff. & IXI & MSLUB & T2w & Full 2D axial \\
+\hline
+
+% --- TBI ---
+\multicolumn{6}{l}{\textbf{Traumatic Brain Injury (TBI)}} \\
+\midrule
+\citet{Simarro2020} & GAN & Center-TBI & Center-TBI & CT & Full 3D\\
+\end{longtable}

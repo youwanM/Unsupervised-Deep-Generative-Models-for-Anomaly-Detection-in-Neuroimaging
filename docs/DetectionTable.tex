@@ -1,0 +1,81 @@
+\begin{longtable}{lp{1.2cm}lccccp{4.5cm}}
+\caption{Performance comparison using detection metrics (AUROC/AUPRC).
+Methods are grouped by model family (Autoencoders, VAEs, GANs, Diffusion models,
+and related approaches), as defined in Table~\ref{tab:method_summary}.
+Only studies that explicitly reported AUROC and/or AUPRC are included.}
+\label{tab:detection_metrics}
+\\
+\toprule
+\textbf{Method} & \textbf{Arch.} & \textbf{Test Dataset} & \textbf{AUROC} & \textbf{AUPRC} & \textbf{Eval. level} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Method} & \textbf{Arch.} & \textbf{Test Dataset} & \textbf{AUROC} & \textbf{AUPRC} & \textbf{Eval. level} & \textbf{Notes} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{\textit{Continued on next page}} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% --- Brain Tumours ---
+\multicolumn{7}{l}{\textbf{Brain Tumours}} \\
+\midrule
+\citet{Ghorbel2023} & AE & BraTS'20 & 0.780 & 0.425 & Pixel & \\
+\citet{Kascenas2023} & AE & BraTS'21 & -- & 0.833 & Pixel & \\
+ & & In-house (Multiple) & -- & 0.693 & Pixel & \\
+\citet{Luo2023} & AE & BraTS'19 & 0.844 & 0.741 & Slice & \\
+\citet{Meissen2023} & AE & BraTS'20 & 0.790 & -- & Pixel & \\
+\citet{Jimenez-Garcia2024} & AE & BraTS'20 & 0.838 & -- & Voxel & \\
+\citet{Lu2024} & AE & BTD & 0.992 & -- & Slice &\\
+\citet{Qu2026} & AE & BraTS'21 & 0.905 & -- & Slice & \\
+\citet{Sato2019} & VAE & BraTS'17 & 0.582 & -- & Pixel & Evaluated on T1w\\
+ & & & 0.788 & -- & Pixel & Evaluated on T2\\
+\citet{Uzunova2019} & VAE & BraTS'15 (T1w Gd, 2D) & 0.950 & -- & Pixel & Evaluated in 2D on T1w Gd\\
+\citet{Uzunova2019} & VAE & BraTS'15 (T1w Gd, 3D) & 0.950 & -- & Voxel & Evaluated in 3D on T1w Gd}\\
+\citet{Uzunova2019} & VAE & BraTS'15 (fusion) & 0.940 & -- & Voxel & Evaluated in 3D on fusion of T1w Gd, T2w and FLAIR}\\
+\citet{Zimmerer2019} & VAE & BraTS'17 & 0.820 & -- & Pixel & \\
+\citet{Bengs2021} & VAE & BraTS'19 & -- & 0.279 & Slice & \\
+\citet{Pinaya2022-2} & VAE & BraTS'18 & -- & 0.555 & Pixel & \\
+\citet{Lüth2023} & VAE &  BraTS'17 & 0.942 & 0.380 & Voxel & \\
+\citet{Wijanarko2024} & VAE & BraTS'20 & 0.968 & 0.462 & Voxel & \\
+\citet{Wyatt2022} & Diff. & Pernet et al. & 0.863 & -- & Pixel & \\
+\citet{Behrendt2023} & Diff. & BraTS'21 & -- & 0.541 & Voxel & \\
+\citet{Iqbal2023} & Diff. & BraTS'21 & -- & 0.590 & Pixel & \\
+\citet{Kumar2024} & Diff. & BraTS'20 & -- & 0.417 & Pixel & \\
+ & & BraTS'21 & -- & 0.578 & Pixel & \\
+\citet{Bi2025} & Diff. & BraTS'23 & 0.922 & -- & Slice & \\
+\hline
+
+% --- Stroke ---
+\multicolumn{7}{l}{\textbf{Stroke (Acute and Chronic)}} \\
+\midrule
+\citet{Luo2023} & AE & In-house (Stroke) & 0.807 & 0.705 & Slice & Evaluated on Stroke\\
+\citet{Qu2026} & AE & In-house (Stroke) & 0.839 & -- & Slice & Evaluated on Stroke\\
+\citet{Sato2019} & VAE & ATLAS 1.1 & 0.672 & -- & Pixel & \\
+\citet{Bengs2021} & VAE & ATLAS 1.1 & -- & 0.256 & Slice & \\
+\citet{Lüth2023} & VAE & ISLES 2015 & 0.898 & 0.186 & Voxel & \\
+\citet{Bercea2023} & Diff. & ATLAS 2.0 & -- & 0.145 & Pixel & \\
+\hline
+
+% --- MS and WMH ---
+\multicolumn{7}{l}{\textbf{Multiple Sclerosis (MS) and White Matter Hyperintensities (WMH)}} \\
+\midrule
+\citet{Baur2021-2} & AE & In-house (MS) & -- & 0.300 & Voxel & Evaluated on MS \\
+\citet{Ghorbel2023} & AE & MSLUB & 0.886 & 0.203 & Pixel & \\
+\citet{Luo2023} & AE & In-house (MS) & 0.858 & 0.731 & Slice & Evaluated on MS\\
+\citet{Pinaya2022-2} & VAE & MSLUB (2D)& -- & 0.272 & Pixel & \\
+\citet{Pinaya2022-2} & VAE & MSLUB & 0.866 & -- & Slice & \\
+\citet{Pinaya2022-2} & VAE & WMH (2D)& -- & 0.320 & Pixel & \\
+\citet{Behrendt2023} & Diff. & MSLUB & -- & 0.106 & Voxel & \\
+\citet{Iqbal2023} & Diff. & MSLUB & -- & 0.106 & Pixel & \\
+\citet{Kumar2024} & Diff. & MSLUB & -- & 0.067 & Pixel & \\
+\hline
+
+% --- TBI ---
+\multicolumn{7}{l}{\textbf{Traumatic Brain Injury (TBI)}} \\
+\midrule
+\citet{Simarro2020} & GAN & Center-TBI & 0.749 & -- & Voxel & \\
+\end{longtable}
