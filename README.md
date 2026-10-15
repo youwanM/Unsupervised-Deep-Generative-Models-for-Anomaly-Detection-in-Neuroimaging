@@ -50,14 +50,17 @@ You can visualise the long tables in an in-browser interactive table [HERE](http
 If you use this work, please cite:
 
 ```bibtex
-@misc{mahé2025unsuperviseddeepgenerativemodels,
-      title={Unsupervised Deep Generative Models for Anomaly Detection in Neuroimaging: A Systematic Scoping Review}, 
-      author={Youwan Mahé and Elise Bannier and Stéphanie Leplaideur and Elisa Fromont and Francesca Galassi},
-      year={2025},
-      eprint={2510.14462},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2510.14462}, 
+@article{MAHE2027111572,
+title = {Unsupervised deep generative models for anomaly detection in neuroimaging: A systematic scoping review},
+journal = {Biomedical Signal Processing and Control},
+volume = {130},
+pages = {111572},
+year = {2027},
+issn = {1746-8094},
+doi = {https://doi.org/10.1016/j.bspc.2026.111572},
+url = {https://www.sciencedirect.com/science/article/pii/S1746809426021300},
+author = {Youwan Mahé and Elise Bannier and Stéphanie Leplaideur and Elisa Fromont and Francesca Galassi},
+keywords = {Unsupervised anomaly detection, Deep generative modelling, Neuroimaging, Magnetic resonance imaging}
 }
 ```
 
